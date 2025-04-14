@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio de Mostafa Mellouki, Développeur Web & Designer 3ds basé à Paris, France.">
+    <meta name="author" content="Mostafa Mellouki">
+    <title>Mon Portfolio</title>
+    <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">Mon Portfolio</div>
+            <ul class="nav-links">
+                <li><a href="#home" aria-label="Accueil">Accueil</a></li>
+                <li><a href="#about" aria-label="À propos">À propos</a></li>
+                <li><a href="#services" aria-label="Services">Services</a></li>
+                <li><a href="#contact" aria-label="Contact">Contact</a></li>
+            </ul>
+            <div class="burger-menu" aria-label="Menu Burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content animated">
+            <h1>Bonjour, je suis <span class="highlight">Mostafa Mellouki</span></h1>
+            <h2>Développeur Web & Designer 3ds</h2>
+            <p>Je crée des expériences web attrayantes et fonctionnelles avec une passion pour l'interface utilisateur et l'expérience utilisateur.</p>
+            <a href="#contact" class="btn" aria-label="Contacter">Me contacter</a>
+        </div>
+        <div class="hero-image animated">
+            <img src="profile.png" alt="Photo de profil de Mostafa Mellouki">
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="section-title">
+            <h2>À propos de moi</h2>
+        </div>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Développeur Web & Designer 3ds avec </h3>
+                <p>Je suis un développeur web passionné par la création d'expériences numériques modernes et intuitives. Mon parcours dans le développement web et depuis, j'ai travaillé sur divers projets allant des sites vitrines aux applications web complexes.</p>
+                <p>Mon approche combine créativité et technicité pour développer des solutions sur mesure répondant parfaitement aux besoins des clients. Je reste constamment à l'affût des dernières tendances et technologies pour proposer des solutions innovantes.</p>
+                <div class="skills">
+                    <h4>Mes compétences</h4>
+                    <div class="skill-bars skill-loading">
+                        <div class="skill-bar">
+                            <div class="skill-info">
+                                <span>HTML/CSS</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-info">
+                                <span>JavaScript</span>
+                                <span>45%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 45%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-info">
+                                <span>PHP</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-info">
+                                <span>3ds</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="section-title">
+            <h2>Mes Services</h2>
+        </div>
+        <div class="services-container">
+            <div class="service-card animated">
+                <div class="service-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3>Développement Web</h3>
+                <p>Création de sites web responsive, modernes et optimisés pour les moteurs de recherche.</p>
+            </div>
+            <div class="service-card animated">
+                <div class="service-icon">
+                    <i class="fas fa-palette"></i>
+                </div>
+                <h3>Web Design</h3>
+                <p>Conception d'interfaces utilisateur attrayantes et intuitives pour une expérience utilisateur optimale.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="f1abf860-bf97-4aab-9e99-69d112223355">
+      
+          <div class="section-title">
+              <h2>Me Contacter</h2>
+          </div>
+          <div class="contact-container">
+              <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h4>Adresse</h4>
+                        <p>Meknes,Maroc</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h4>Email</h4>
+                        <p>mostafamellouki6@gmail.com</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h4>Téléphone</h4>
+                        <p>+212 721-011588</p>
+                    </div>
+                </div>
+            </div>
+              <div class="contact-form">
+                  <div class="form-group">
+                      <label for="name">Nom</label>
+                      <input type="text" id="name" name="name" class="form-control" required>
+                  </div>
+                  <div class="form-group">
+                      <label for="email">Email</label>
+                      <input type="email" id="email" name="email" class="form-control" required>
+                  </div>
+                  <div class="form-group">
+                      <label for="subject">Sujet</label>
+                      <input type="text" id="subject" name="subject" class="form-control" required>
+                  </div>
+                  <div class="form-group">
+                      <label for="message">Message</label>
+                      <textarea id="message" name="message" class="form-control" required></textarea>
+                  </div>
+                  <button type="submit" class="btn">Envoyer Message</button>
+              </div>
+          </div>
+        </form>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <h3>Votre Nom</h3>
+            <p>Développeur Web & Designer basé à Paris, France. Je crée des expériences web modernes et intuitives.</p>
+            <div class="social-icons">
+                <!-- <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a> -->
+                <a href="" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></i></a>
+                <!-- <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a> -->
+                <a href="https://www.linkedin.com/in/mostafa-mellouki-25bb69280/" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/PhoenixN1/desktop-tutorial" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Tous droits réservés | Conçu par <span class="highlight">Votre Nom</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const burgerMenu = document.querySelector('.burger-menu');
+            const navLinks = document.querySelector('.nav-links');
+            burgerMenu.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                burgerMenu.classList.toggle('toggle');
+            });
+
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    navLinks.classList.remove('active');
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 70,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            function animateSkills() {
+                const skillSection = document.querySelector('.skills');
+                if (!skillSection) return;
+                const skillBars = document.querySelectorAll('.progress');
+                const isInViewport = (element) => {
+                    const rect = element.getBoundingClientRect();
+                    return (rect.top <= (window.innerHeight || document.documentElement.clientHeight) && rect.bottom >= 0);
+                };
+                if (isInViewport(skillSection)) {
+                    skillBars.forEach(bar => {
+                        const width = bar.style.width;
+                        bar.style.width = '0';
+                        bar.offsetWidth;
+                        setTimeout(() => {
+                            bar.style.width = width;
+                        }, 200);
+                    });
+                    window.removeEventListener('scroll', checkScroll);
+                }
+            }
+
+            const checkScroll = () => {
+                animateSkills();
+            };
+            window.addEventListener('scroll', checkScroll);
+            checkScroll();
+
+            const animateOnScroll = () => {
+                const elements = document.querySelectorAll('.animated:not(.show)');
+                elements.forEach(element => {
+                    if (isInViewport(element)) {
+                        element.classList.add('show');
+                    }
+                });
+            };
+
+            function isInViewport(element) {
+                const rect = element.getBoundingClientRect();
+                return (rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 && rect.bottom >= 0);
+            }
+
+            window.addEventListener('scroll', animateOnScroll);
+            animateOnScroll();
+
+            const animateHeroTitle = () => {
+                const heroTitle = document.querySelector('.hero h1 .highlight');
+                if (!heroTitle) return;
+                heroTitle.style.opacity = '0';
+                heroTitle.style.transition = 'opacity 0.5s ease-in-out';
+                setTimeout(() => {
+                    heroTitle.style.opacity = '1';
+                }, 500);
+            };
+            setTimeout(animateHeroTitle, 1000);
+
+            const style = document.createElement('style');
+            style.textContent = `
+                .burger-menu.toggle .line1 {
+                    transform: rotate(-45deg) translate(-5px, 6px);
+                }
+                .burger-menu.toggle .line2 {
+                    opacity: 0;
+                }
+                .burger-menu.toggle .line3 {
+                    transform: rotate(45deg) translate(-5px, -6px);
+                }
+                .animated:not(.show) {
+                    opacity: 0;
+                    transform: translateY(30px);
+                    transition: none;
+                    
+                }
+                .animated.show {
+                    opacity: 1;
+                    transform: translateY(0);
+                    transition: all 0.8s ease-out;
+                    
+                }
+                .hero h1 .highlight {
+                    color: var(--primary-color);
+                    transition: opacity 0.5s ease-in-out;
+                }
+            `;
+            document.head.appendChild(style);
+
+            const addDarkModeToggle = () => {
+                const footer = document.querySelector('.footer-content');
+                if (!footer) return;
+                const darkModeToggle = document.createElement('div');
+                darkModeToggle.className = 'dark-mode-toggle';
+                darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+                darkModeToggle.style.cursor = 'pointer';
+                darkModeToggle.style.marginTop = '20px';
+                darkModeToggle.style.fontSize = '1.5rem';
+                darkModeToggle.addEventListener('click', () => {
+                    document.body.classList.toggle('dark-mode');
+                    if (document.body.classList.contains('dark-mode')) {
+                        darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+                        localStorage.setItem('darkMode', 'enabled');
+                    } else {
+                        darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+                        localStorage.setItem('darkMode', 'disabled');
+                    }
+                });
+                footer.appendChild(darkModeToggle);
+                if (localStorage.getItem('darkMode') === 'enabled') {
+                    document.body.classList.add('dark-mode');
+                    darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+                    const darkStyles = document.createElement('style');
+                    darkStyles.textContent = `
+                        body.dark-mode {
+                            background-color: #121212;
+                            color: #e0e0e0;
+                        }
+                        body.dark-mode header {
+                            background-color: #1e1e1e;
+                            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+                        }
+                        body.dark-mode .nav-links a {
+                            color: #ffffff;
+                            // background-color: #1e1e1e;
+                        }
+                            body.dark-mode .nav-links {
+                            position: fixed;
+                            background-color: #1e1e1e;
+                            // height: 800%;
+                            }
+                        body.dark-mode .contact-details {
+                            color: #1e1e1e;
+                            // box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+                        }
+                        body.dark-mode .service-card, 
+                        body.dark-mode .contact-form {
+                            background-color: #1e1e1e;
+                            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+                        }
+                        body.dark-mode .form-control {
+                            background-color: #2d2d2d;
+                            border-color: #444;
+                            color: #e0e0e0;
+                        }
+                        body.dark-mode .form-control::placeholder {
+                            color: #888;
+                        }
+                    `;
+                    document.head.appendChild(darkStyles);
+                }
+            };
+            addDarkModeToggle();
+        });
+    </script>
+</body>
+</html>
