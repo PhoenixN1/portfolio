@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Projects of Mostafa Mellouki" />
+  <meta name="author" content="Mostafa Mellouki" />
+  <title>My Projects</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-color: #667eea;
+      --secondary-color: #764ba2;
+      --accent-color: #f093fb;
+      --text-color: #333;
+      --light-text: #666;
+      --bg-color: #f8fafc;
+      --white: #ffffff;
+      --gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      --accent-gradient: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      /* justify-content: center;
+      text-align: center; */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      background: var(--bg-color);
+      overflow-x: hidden;
+      padding-top: 80px;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    header.scrolled {
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: var(--shadow);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 5%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    nav a {
+      text-decoration: none;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      transition: right 0.5s ease-in-out;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: 500;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: var(--gradient);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .burger-menu {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .burger-menu div {
+      width: 25px;
+      height: 3px;
+      background: var(--text-color);
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+
+    h1 {
+      width: max-content;
+      margin: 0 auto 40px auto;
+      text-align: center;
+      border-bottom: solid 5px var(--primary-color);
+    }
+
+
+    .projects-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 5%;
+    }
+
+    .project-card {
+      background: var(--white);
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .project-card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .project-card h3 {
+      color: var(--secondary-color);
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+    }
+
+    .project-card p {
+      font-size: 0.95rem;
+      color: var(--light-text);
+    }
+
+    .project-card a {
+      display: inline-block;
+      margin-top: 10px;
+      color: var(--primary-color);
+      font-weight: bold;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .project-card a:hover {
+      color: var(--secondary-color);
+    }
+
+    .custom-cursor {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: rgba(102, 126, 234, 0.5);
+      pointer-events: none;
+      z-index: 9999;
+      transition: all 0.1s ease;
+      transform: translate(-50%, -50%);
+      backdrop-filter: blur(2px);
+    }
+
+    .cursor-follower {
+      position: fixed;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #667eea;
+      pointer-events: none;
+      z-index: 9998;
+      transition: all 0.15s ease;
+      transform: translate(-50%, -50%);
+    }
+
+
+    @media (max-width: 768px) {
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        padding-top: 2rem;
+        transition: right 0.3s ease;
+      }
+
+      .nav-links.active {
+        right: 0;
+      }
+
+      .burger-menu {
+        display: flex;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .project-card {
+        padding: 1.2rem;
+      }
+    }
+    footer {
+      background: linear-gradient(135deg, #2d3748, #1a202c);;
+      padding: 2rem 5%;
+      box-shadow: var(--shadow);
+      margin-top: 40px;
+    }
+    .footer-content {
+      max-width: 1200px;
+      margin: auto;
+      text-align: center;
+    }
+    .footer-content h3 {
+      margin-bottom: 10px;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .footer-content p {
+      color: #fff;
+      margin-bottom: 15px;
+    }
+    .social-icons {
+      margin-bottom: 15px;
+    }
+    .social-icons a {
+      color: var(--text-color);
+      margin: 0 10px;
+      font-size: 1.2rem;
+      transition: color 0.3s;
+    }
+    .social-icons a:hover {
+      color: var(--primary-color);
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <nav>
+      <a href="index.html">
+        <div class="logo">My Portfolio</div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" aria-label="Home">Home</a></li>
+        <li><a href="index.html#about" aria-label="About">About</a></li>
+        <li><a href="index.html#services" aria-label="Services">Services</a></li>
+        <li><a href="index.html#contact" aria-label="Contact">Contact</a></li>
+      </ul>
+      <div class="burger-menu" aria-label="Burger Menu">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+    </nav>
+  </header>
+
+
+  <h1> Front-End</h1>
+
+
+  <div class="projects-container">
+    <div class="project-card">
+      <img src="le delice cafe.png" alt="Project 1">
+      <h3>Project 1</h3>
+      <p>Un site Web moderne construit avec HTML, CSS et JavaScript.
+        Le Délice vous invite à découvrir l’authenticité de
+        la cuisine méditerranéenne dans une ambiance chaleureuse.
+        Des plats faits maison, des ingrédients frais et une
+        expérience culinaire unique à Casablanca. 🌿🍴
+      </p>
+      <a href="https://ledilicecafe.netlify.app/">View Project</a>
+    </div>
+
+    <div class="project-card">
+      <img src="andalos.png" alt="Project 2">
+      <h3>Project 2</h3>
+      <p>Un site Web moderne construit avec HTML, CSS et JavaScript.
+        Café Andalous à Meknès vous invite à découvrir
+        l’authenticité marocaine à travers ses cafés parfumés,
+        ses thés à la menthe et ses pâtisseries traditionnelles.
+        Depuis 1985, nous perpétuons l’art de l’hospitalité
+        dans un cadre chaleureux, alliant tradition et modernité
+        pour une expérience unique au cœur de la médina. 🌿🥐
+      </p>
+      <a href="https://andalous-mellouki.netlify.app/">View Project</a>
+    </div>
+
+    <div class="project-card">
+      <img src="herrywatch.png" alt="Project 3">
+      <h3>Project 3</h3>
+      <p>Un site Web moderne construit avec HTML, CSS et JavaScript.
+        HERRY WATCH allie savoir-faire artisanal et design moderne pour
+        créer des montres élégantes et précises. Chaque modèle reflète
+        style et qualité, pour sublimer votre quotidien.
+      </p>
+      <a href="https://herry-wacth-mellouki.netlify.app/">View Project</a>
+    </div>
+    <div class="project-card">
+      <img src="riadnoir.png" alt="Project 4">
+      <h3>Project 4</h3>
+      <p>Un site Web moderne construit avec HTML, CSS et JavaScript.
+        🏛️ Riad Noir d'Ivoire à Marrakech vous invite à vivre
+        l'authenticité marocaine à travers son architecture
+        traditionnelle, son accueil chaleureux et ses expériences
+        de luxe. Depuis des années, nous allions tradition et
+        modernité pour offrir à nos visiteurs un séjour
+        inoubliable au cœur de la médina. 🌿🛁🍽️
+      </p>
+      <a href="https://riad-noir-d-ivoire.netlify.app/">View Project</a>
+    </div>
+  </div>
+  <footer class="fade-in">
+    <div class="footer-content">
+      <h3>Mostafa Mellouki</h3>
+      <p>Web Developer & Designer based in Morocco. I build modern and intuitive web experiences.</p>
+      <div class="social-icons">
+        <a href="https://www.linkedin.com/in/mostafa-mellouki-25bb69280/" aria-label="LinkedIn"><i
+            class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/PhoenixN1/desktop-tutorial" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2025 All rights reserved | Designed by <span class="highlight">Mostafa Mellouki</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('header');
+      header.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+
+    const burger = document.querySelector('.burger-menu');
+    const navLinks = document.querySelector('.nav-links');
+    burger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+
+    const cursor = document.createElement('div');
+    cursor.className = 'custom-cursor';
+    document.body.appendChild(cursor);
+
+    const cursorFollower = document.createElement('div');
+    cursorFollower.className = 'cursor-follower';
+    document.body.appendChild(cursorFollower);
+
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+
+      setTimeout(() => {
+        cursorFollower.style.left = e.clientX + 'px';
+        cursorFollower.style.top = e.clientY + 'px';
+      }, 50);
+    });
+
+    if (window.innerWidth <= 768) {
+      cursor.style.display = 'none';
+      cursorFollower.style.display = 'none';
+    }
+
+    const interactiveElements = document.querySelectorAll('a, button, .project-card');
+    interactiveElements.forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
+        cursor.style.background = 'rgba(102, 126, 234, 0.8)';
+      });
+
+      el.addEventListener('mouseleave', () => {
+        cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+        cursor.style.background = 'rgba(102, 126, 234, 0.5)';
+      });
+    });
+  </script>
+
+</body>
+
+</html>
