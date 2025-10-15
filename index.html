@@ -8,7 +8,9 @@
         content="Portfolio of Mostafa Mellouki, Web Developer & 3ds Designer based in Paris, France.">
     <meta name="author" content="Mostafa Mellouki" />
     <title>My Portfolio</title>
+    <link rel="icon" href="profile.png" style="border-radius:50% ;">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+
     <style>
         * {
             margin: 0;
@@ -17,17 +19,21 @@
         }
 
         :root {
-            --primary-color: #667eea;
-            --secondary-color: #764ba2;
-            --accent-color: #f093fb;
-            --text-color: #333;
-            --light-text: #666;
-            --bg-color: #f8fafc;
+            --primary-color: #8b5cf6;
+            --secondary-color: #a855f7;
+            --accent-color: #06b6d4;
+            --text-color: #f8fafc;
+            --light-text: #cbd5e1;
+            --bg-color: #0f172a;
+            --secondary-bg: #1e293b;
+            --card-bg: #334155;
             --white: #ffffff;
             --gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             --accent-gradient: linear-gradient(135deg, var(--accent-color), var(--primary-color));
-            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.15);
+            --dark-gradient: linear-gradient(135deg, #1e293b, #334155);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.4);
+            --border-color: #475569;
         }
 
         html {
@@ -35,27 +41,31 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Instrument Serif', serif;
             line-height: 1.6;
             color: var(--text-color);
             background: var(--bg-color);
-            overflow-x: hidden;
-        }
+            /* overflow-x: hidden; */
+            padding: 0;
 
+        }
 
         header {
             position: fixed;
+            margin: 10px 0;
             top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            width: 75%;
+            border-radius: 50px;
+            background: #0f172a76;
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--border-color);
             z-index: 1000;
             transition: all 0.3s ease;
+            transform: translateX(18%);
         }
 
         header.scrolled {
-            background: rgba(255, 255, 255, 0.98);
+            /* background: rgba(15, 23, 42, 0.98); */
             box-shadow: var(--shadow);
         }
 
@@ -70,6 +80,7 @@
 
         nav a {
             text-decoration: none;
+            display: flex;
         }
 
         .logo {
@@ -79,6 +90,19 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .img-logo {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 5px 17px 0 0px;
+            /* border: solid #fff 5px; */
         }
 
         .nav-links {
@@ -143,7 +167,7 @@
             display: flex;
             align-items: center;
             padding: 0 5%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #475569 100%);
             position: relative;
             overflow: hidden;
         }
@@ -155,13 +179,13 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.05)" points="0,1000 0,0 1000,0"/></svg>');
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(139,92,246,0.1)" points="0,1000 0,0 1000,0"/></svg>');
             animation: float 20s ease-in-out infinite;
         }
 
         .hero-content {
             flex: 1;
-            color: white;
+            color: var(--text-color);
             z-index: 2;
             position: relative;
         }
@@ -180,7 +204,7 @@
             opacity: 0;
             transform: translateY(30px);
             animation: fadeInUp 1s ease forwards 0.4s;
-            color: rgba(255, 255, 255, 0.9);
+            color: var(--light-text);
         }
 
         .hero-content p {
@@ -189,11 +213,11 @@
             opacity: 0;
             transform: translateY(30px);
             animation: fadeInUp 1s ease forwards 0.6s;
-            color: rgba(255, 255, 255, 0.8);
+            color: var(--light-text);
         }
 
         .highlight {
-            background: linear-gradient(45deg, #f093fb, #f5576c);
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -202,11 +226,11 @@
         .btn {
             display: inline-block;
             padding: 12px 30px;
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
+            background: rgba(139, 92, 246, 0.2);
+            color: var(--text-color);
             text-decoration: none;
             border-radius: 50px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            border: 2px solid rgba(139, 92, 246, 0.5);
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
             opacity: 0;
@@ -215,9 +239,9 @@
         }
 
         .btn:hover {
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(139, 92, 246, 0.4);
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 25px rgba(139, 92, 246, 0.3);
         }
 
         .hero-image {
@@ -226,21 +250,54 @@
             justify-content: center;
             align-items: center;
             position: relative;
+            animation: blur-image 3s linear forwards;
+
         }
 
-        .hero-image img {
+        .hero-image-container {
+            position: relative;
             width: 300px;
             height: 300px;
             border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid rgba(255, 255, 255, 0.3);
+            overflow: hidden;
+            border: 5px solid rgba(139, 92, 246, 0.5);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
             opacity: 0;
             transform: scale(0.8);
             animation: fadeInScale 1s ease forwards 1s;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+
         }
 
-        /* Section Styles */
+        .hero-image img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            filter: blur(5px);
+            transition: filter 0.3s ease;
+        }
+
+        .hero-image img:hover {
+            animation: blur-image 3s linear forwards;
+        }
+
+        @keyframes blur-image {
+            from {
+                filter: blur(5px);
+                transform: rotateY(0deg);
+            }
+
+            to {
+                filter: blur(0px);
+                transform: rotateY(360deg);
+            }
+        }
+
+
+
         section {
             padding: 80px 5%;
             max-width: 1200px;
@@ -263,7 +320,7 @@
 
         /* About Section */
         .about {
-            background: var(--white);
+            background: var(--secondary-bg);
         }
 
         .about-content {
@@ -294,20 +351,19 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            /* margin-top: 2rem; */
-            /* border: #333 solid 1px; */
         }
 
         .btn-projects {
             padding: 10px 20px;
             background: var(--gradient);
-            color: white;
+            color: var(--text-color);
             border: none;
             border-radius: 50px;
             cursor: pointer;
             font-size: 1rem;
             font-weight: 500;
             transition: all 0.3s ease;
+            font-family: 'Instrument Serif', serif;
         }
 
         .btn-projects:hover {
@@ -332,7 +388,6 @@
             100% {
                 transform: translateX(0);
             }
-
         }
 
         .skills h4 {
@@ -350,11 +405,12 @@
             justify-content: space-between;
             margin-bottom: 0.5rem;
             font-weight: 500;
+            color: var(--light-text);
         }
 
         .progress-bar {
             height: 8px;
-            background: #e0e7ff;
+            background: var(--border-color);
             border-radius: 4px;
             overflow: hidden;
         }
@@ -375,7 +431,7 @@
             left: 0;
             height: 100%;
             width: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
             animation: shimmer 2s infinite;
         }
 
@@ -391,18 +447,19 @@
         }
 
         .service-card {
-            background: var(--white);
+            background: var(--card-bg);
             padding: 2.5rem;
             border-radius: 15px;
             text-align: center;
             box-shadow: var(--shadow);
             transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid var(--border-color);
         }
 
         .service-card:hover {
             transform: translateY(-10px);
             box-shadow: var(--shadow-hover);
+            border-color: var(--primary-color);
         }
 
         .service-icon {
@@ -415,7 +472,7 @@
             align-items: center;
             justify-content: center;
             font-size: 2rem;
-            color: white;
+            color: var(--text-color);
         }
 
         .service-card h3 {
@@ -431,7 +488,7 @@
 
         /* Contact Section */
         .contact {
-            background: var(--white);
+            background: var(--secondary-bg);
         }
 
         .contact-container {
@@ -446,14 +503,16 @@
             align-items: center;
             margin-bottom: 2rem;
             padding: 1.5rem;
-            background: var(--bg-color);
+            background: var(--card-bg);
             border-radius: 10px;
             transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
         }
 
         .contact-item:hover {
             transform: translateX(10px);
             box-shadow: var(--shadow);
+            border-color: var(--primary-color);
         }
 
         .contact-icon {
@@ -464,7 +523,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            color: var(--text-color);
             margin-right: 1rem;
             font-size: 1.2rem;
         }
@@ -480,9 +539,10 @@
         }
 
         .contact-form {
-            background: var(--bg-color);
+            background: var(--card-bg);
             padding: 2rem;
             border-radius: 15px;
+            border: 1px solid var(--border-color);
         }
 
         .form-group {
@@ -499,17 +559,18 @@
         .form-control {
             width: 100%;
             padding: 12px 15px;
-            border: 2px solid #e0e7ff;
+            border: 2px solid var(--border-color);
             border-radius: 8px;
             font-size: 1rem;
             transition: all 0.3s ease;
-            background: var(--white);
+            background: var(--secondary-bg);
+            color: var(--text-color);
         }
 
         .form-control:focus {
             outline: none;
             border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
         }
 
         textarea.form-control {
@@ -519,7 +580,7 @@
 
         .contact-form .btn {
             background: var(--gradient);
-            color: white;
+            color: var(--text-color);
             border: none;
             padding: 12px 30px;
             cursor: pointer;
@@ -532,58 +593,182 @@
             box-shadow: var(--shadow-hover);
         }
 
-        /* Footer */
         footer {
-            background: linear-gradient(135deg, #2d3748, #1a202c);
-            color: white;
-            padding: 3rem 5% 1rem;
-            text-align: center;
+            background: var(--bg-color);
+            color: #fff;
+            padding: 60px 40px 30px;
+            border-top: 1px solid #222;
         }
 
-        .footer-content h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #f093fb, #f5576c);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
-        .footer-content p {
-            margin-bottom: 2rem;
-            color: rgba(255, 255, 255, 0.8);
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 50px;
         }
 
-        .social-icons {
+        .footer-intro {
             display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
+            flex-direction: column;
+            gap: 20px;
         }
 
-        .social-icons a {
-            width: 50px;
-            height: 50px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
+        .footer-avatar {
+            width: 60px;
+            height: 60px;
+            background: transparent;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            font-size: 24px;
+        }
+
+        .footer-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .footer-intro p {
+            color: #999;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        .footer-column h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            color: #fff;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 15px;
+        }
+
+        .footer-column ul li a {
+            color: #999;
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column ul li a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 30px;
+            border-top: 1px solid #222;
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .footer-legal span {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .footer-legal a {
+            color: #999;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-legal a:hover {
+            color: #fff;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin: 0 40px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
             text-decoration: none;
             transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
         }
 
-        .social-icons a:hover {
-            background: var(--accent-gradient);
-            transform: translateY(-3px);
+        .social-icon:hover {
+            background: #2a2a2a;
+            color: #fff;
+            transform: translateY(-2px);
         }
 
-        .copyright {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 1rem;
-            color: rgba(255, 255, 255, 0.6);
+        .theme-toggle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #1a1a1a;
+            border: none;
+            color: #999;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background: #2a2a2a;
+            color: #fff;
+        }
+
+        @media (max-width: 1024px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            footer {
+                padding: 40px 20px 20px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .footer-legal {
+                flex-direction: column;
+                gap: 10px;
+            }
         }
 
         /* Animations */
@@ -656,15 +841,15 @@
             transform: translateX(0);
         }
 
-        /* Responsive Design */
+        /* Mobile */
         @media (max-width: 768px) {
             .nav-links {
                 position: fixed;
                 top: 70px;
-                right: -100%;
-                width: 100%;
+                right: -130%;
+                width: 110%;
                 height: calc(100vh - 70px);
-                background: rgba(255, 255, 255, 0.95);
+                background: rgba(15, 23, 42, 0.95);
                 backdrop-filter: blur(10px);
                 flex-direction: column;
                 justify-content: start;
@@ -674,7 +859,7 @@
             }
 
             .nav-links.active {
-                right: 0;
+                right: 1px;
             }
 
             .burger-menu {
@@ -692,6 +877,10 @@
             }
 
             .hero-image img {
+                filter: blur(0);
+            }
+
+            .hero-image-container {
                 width: 250px;
                 height: 250px;
             }
@@ -710,7 +899,7 @@
         }
 
         @media (max-width: 480px) {
-            .hero-image img {
+            .hero-image-container {
                 width: 200px;
                 height: 200px;
             }
@@ -732,7 +921,11 @@
     <header>
         <nav>
             <a href="index.html">
-                <div class="logo">My Portfolio</div>
+                <img class="img-logo" src="profile.png" alt="mon photo">
+                <div class="logo">
+                    <h4>My<span style="color: #ffffff;">Portfolio</span></h4>
+                </div>
+
             </a>
             <ul class="nav-links">
                 <li><a href="#home" aria-label="Home">Home</a></li>
@@ -756,7 +949,10 @@
             <a href="#contact" class="btn" aria-label="Contact Me">Contact Me</a>
         </div>
         <div class="hero-image">
-            <img src="profile.png" alt="Profile photo of Mostafa Mellouki" />
+            <div class="hero-image-container">
+                <!-- <img class="image2" src="profile.png" alt="Caractere photo of Mostafa Mellouki" /> -->
+                <img src="profile.png" alt="Profile photo of Mostafa Mellouki" />
+            </div>
         </div>
     </section>
 
@@ -832,6 +1028,14 @@
                                 <div class="progress" data-width="50"></div>
                             </div>
                         </div>
+                        <div class="skill-bar">
+                            <div class="skill-info">
+                                <span>Flutter dart (Widgets) </span><span>80%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress" data-width="80"></div>
+                            </div>
+                        </div>
 
                     </div>
                     <div class="myproject">
@@ -844,6 +1048,7 @@
             </div>
         </div>
     </section>
+
 
     <section id="services" class="services">
         <div class="section-title fade-in">
@@ -916,19 +1121,64 @@
         </form>
     </section>
 
-    <footer class="fade-in">
-        <div class="footer-content">
-            <h3>Mostafa Mellouki</h3>
-            <p>Web Developer & Designer based in Morocco. I build modern and intuitive web experiences.</p>
-            <div class="social-icons">
-                <!-- <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a> -->
-                <a href="https://www.linkedin.com/in/mostafa-mellouki-25bb69280/" aria-label="LinkedIn"><i
-                        class="fab fa-linkedin-in"></i></a>
-                <a href="https://github.com/PhoenixN1/desktop-tutorial" aria-label="GitHub"><i
-                        class="fab fa-github"></i></a>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-intro">
+                    <div class="footer-avatar"><img src="profile.png" alt=""></div>
+                    <p>I'm Mostafa Mellouki – a  developer, freelancer & problem solver. Thanks for checking
+                        out my site!</p>
+                </div>
+
+                <div class="footer-column">
+                    <h4>General</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="project.html">Projects</a></li>
+                        <li><a href="#services">My Services</a></li>
+                        <li><a href="#contact">Contact Me</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Specifics</h4>
+                    <ul>
+                        <li><a href="#guestbook">Guest Book</a></li>
+                        <li><a href="#bucket">Bucket List</a></li>
+                        <li><a href="#uses">Uses</a></li>
+                        <li><a href="#attribution">Attribution</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>More</h4>
+                    <ul>
+                        <li><a href="#call">Book a call</a></li>
+                        <li><a href="#links">Links</a></li>
+                        <li><a href="#rss">RSS</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="copyright">
-                <p>&copy; 2025 All rights reserved | Designed by <span class="highlight">Mostafa Mellouki</span></p>
+
+            <div class="footer-bottom">
+                <div class="footer-legal">
+                    <span>© 2025 Mostafa Mellouki. All rights reserved</span>
+                    <a href="#privacy">Privacy Policy</a>
+                    <span>|</span>
+                    <a href="#terms">Terms & Conditions</a>
+                </div>
+
+                <div class="footer-social">
+                    <a href="https://github.com/PhoenixN1/desktop-tutorial" class="social-icon" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/mostafa-mellouki-25bb69280/" class="social-icon"
+                        aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+
+                </div>
             </div>
         </div>
     </footer>
@@ -965,7 +1215,7 @@
             });
         });
 
-        // Header scroll effect
+
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
             if (window.scrollY > 100) {
@@ -975,7 +1225,6 @@
             }
         });
 
-        // Active navigation link
         window.addEventListener('scroll', () => {
             const sections = document.querySelectorAll('section');
             const navLinks = document.querySelectorAll('.nav-links a');
@@ -1044,7 +1293,6 @@
             const formData = new FormData(contactForm);
             const submitBtn = contactForm.querySelector('button[type="submit"]');
             const originalText = submitBtn.textContent;
-
 
             submitBtn.textContent = 'Sending...';
             submitBtn.disabled = true;
@@ -1325,6 +1573,7 @@
         loadingLogo.style.cssText = `
       font-size: 4rem;
       font-weight: bold;
+      font-family:'Instrument Serif', serif;
       margin-bottom: 2rem;
       animation: pulse 2s infinite;
     `;
@@ -1432,7 +1681,7 @@
             createParticles();
         }
 
-        console.log('Portfolio loaded successfully! 🚀');
+        console.log('Portfolio loaded successfully! ');
     </script>
 </body>
 

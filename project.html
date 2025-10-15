@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Projects of Mostafa Mellouki" />
   <meta name="author" content="Mostafa Mellouki" />
+  <link rel="icon" href="profile.png" style="border-radius: 100%;">
   <title>My Projects</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
   <style>
@@ -16,17 +17,21 @@
     }
 
     :root {
-      --primary-color: #667eea;
-      --secondary-color: #764ba2;
-      --accent-color: #f093fb;
-      --text-color: #333;
-      --light-text: #666;
-      --bg-color: #f8fafc;
+      --primary-color: #8b5cf6;
+      --secondary-color: #a855f7;
+      --accent-color: #06b6d4;
+      --text-color: #f8fafc;
+      --light-text: #cbd5e1;
+      --bg-color: #0f172a;
+      --secondary-bg: #1e293b;
+      --card-bg: #334155;
       --white: #ffffff;
       --gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
       --accent-gradient: linear-gradient(135deg, var(--accent-color), var(--primary-color));
-      --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.15);
+      --dark-gradient: linear-gradient(135deg, #1e293b, #334155);
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.4);
+      --border-color: #475569;
     }
 
     html {
@@ -34,10 +39,10 @@
     }
 
     body {
-      /* justify-content: center;
-      text-align: center; */
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
       line-height: 1.6;
+      font-family: 'Instrument Serif', serif;
+
       color: var(--text-color);
       background: var(--bg-color);
       overflow-x: hidden;
@@ -46,17 +51,20 @@
 
     header {
       position: fixed;
+      margin: 10px 0;
       top: 0;
-      width: 100%;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      width: 75%;
+      border-radius: 50px;
+      background: #0f172a76;
+      backdrop-filter: blur(15px);
+      border: 1px solid var(--border-color);
       z-index: 1000;
       transition: all 0.3s ease;
+      transform: translateX(18%);
     }
 
     header.scrolled {
-      background: rgba(255, 255, 255, 0.98);
+      /* background: rgba(15, 23, 42, 0.98); */
       box-shadow: var(--shadow);
     }
 
@@ -71,6 +79,7 @@
 
     nav a {
       text-decoration: none;
+      display: flex;
     }
 
     .logo {
@@ -80,13 +89,25 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .img-logo {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 5px 17px 0 0px;
+      /* border: solid #fff 5px; */
     }
 
     .nav-links {
       display: flex;
       list-style: none;
       gap: 2rem;
-      transition: right 0.5s ease-in-out;
     }
 
     .nav-links a {
@@ -133,8 +154,14 @@
       margin: 0 auto 40px auto;
       text-align: center;
       border-bottom: solid 5px var(--primary-color);
+      color: var(--text-color);
+      font-size: 2.5rem;
     }
 
+    .section-divider {
+      margin: 60px auto;
+      text-align: center;
+    }
 
     .projects-container {
       display: grid;
@@ -143,24 +170,46 @@
       max-width: 1200px;
       margin: auto;
       padding: 0 5%;
+      margin-bottom: 40px;
     }
 
     .project-card {
-      background: var(--white);
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
       border-radius: 15px;
       padding: 20px;
       box-shadow: var(--shadow);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.1), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .project-card:hover::before {
+      left: 100%;
     }
 
     .project-card:hover {
       transform: translateY(-8px);
       box-shadow: var(--shadow-hover);
+      border-color: var(--primary-color);
     }
 
     .project-card img {
       width: 100%;
+      height: 200px;
+      object-fit: cover;
       border-radius: 10px;
       margin-bottom: 15px;
       transition: transform 0.3s ease;
@@ -179,19 +228,429 @@
     .project-card p {
       font-size: 0.95rem;
       color: var(--light-text);
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
 
-    .project-card a {
+    .project-card .view-details {
       display: inline-block;
-      margin-top: 10px;
-      color: var(--primary-color);
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: var(--gradient);
+      color: var(--white);
       font-weight: bold;
       text-decoration: none;
-      transition: color 0.3s;
+      border-radius: 8px;
+      transition: all 0.3s;
     }
 
-    .project-card a:hover {
-      color: var(--secondary-color);
+    .project-card .view-details:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(139, 92, 246, 0.4);
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      z-index: 2000;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal.active {
+      display: flex;
+      opacity: 1;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: var(--secondary-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      max-width: 900px;
+      width: 90%;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      animation: slideIn 0.4s ease;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateY(-50px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    footer {
+      background: var(--bg-color);
+      color: #fff;
+      padding: 60px 40px 30px;
+      border-top: 1px solid #222;
+    }
+
+    .footer-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 50px;
+    }
+
+    .footer-intro {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .footer-avatar {
+      width: 60px;
+      height: 60px;
+      background: transparent;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+
+    .footer-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .footer-intro p {
+      color: #999;
+      line-height: 1.6;
+      font-size: 15px;
+    }
+
+    .footer-column h4 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 25px;
+      color: #fff;
+    }
+
+    .footer-column ul {
+      list-style: none;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 15px;
+    }
+
+    .footer-column ul li a {
+      color: #999;
+      text-decoration: none;
+      font-size: 15px;
+      transition: color 0.3s ease;
+    }
+
+    .footer-column ul li a:hover {
+      color: #fff;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 30px;
+      border-top: 1px solid #222;
+    }
+
+    .footer-legal {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .footer-legal span {
+      color: #666;
+      font-size: 14px;
+    }
+
+    .footer-legal a {
+      color: #999;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s ease;
+    }
+
+    .footer-legal a:hover {
+      color: #fff;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 15px;
+      margin: 0 40px;
+    }
+
+    .social-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #1a1a1a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #999;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .social-icon:hover {
+      background: #2a2a2a;
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .theme-toggle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #1a1a1a;
+      border: none;
+      color: #999;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .theme-toggle:hover {
+      background: #2a2a2a;
+      color: #fff;
+    }
+
+    @media (max-width: 1024px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      footer {
+        padding: 40px 20px 20px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+      }
+
+      .footer-legal {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 2rem;
+      color: var(--text-color);
+      cursor: pointer;
+      background: var(--card-bg);
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      z-index: 10;
+    }
+
+    .modal-close:hover {
+      background: var(--primary-color);
+      transform: rotate(90deg);
+    }
+
+    .modal-header {
+      padding: 40px 40px 20px;
+    }
+
+    .modal-header h2 {
+      font-size: 2rem;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 10px;
+    }
+
+    .modal-tags {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 15px;
+    }
+
+    .modal-tag {
+      padding: 5px 15px;
+      background: var(--card-bg);
+      border: 1px solid var(--primary-color);
+      border-radius: 20px;
+      font-size: 0.85rem;
+      color: white;
+    }
+
+    .gallery-container {
+      position: relative;
+      padding: 0 40px;
+      margin: 20px 0;
+    }
+
+    .gallery-wrapper {
+      overflow: hidden;
+      border-radius: 15px;
+      position: relative;
+    }
+
+    .gallery-images {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-images img {
+      min-width: 100%;
+      height: 400px;
+      object-fit: cover;
+    }
+
+    .gallery-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(139, 92, 246, 0.8);
+      color: var(--white);
+      border: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 5;
+    }
+
+    .gallery-btn:hover {
+      background: var(--primary-color);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .gallery-btn.prev {
+      left: 10px;
+    }
+
+    .gallery-btn.next {
+      right: 10px;
+    }
+
+    .gallery-indicators {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .indicator {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--border-color);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .indicator.active {
+      background: var(--primary-color);
+      width: 30px;
+      border-radius: 5px;
+    }
+
+    .modal-body {
+      padding: 20px 40px 40px;
+    }
+
+    .modal-description {
+      color: var(--light-text);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .modal-technologies {
+      margin: 30px 0;
+    }
+
+    .modal-technologies h3 {
+      color: var(--text-color);
+      margin-bottom: 15px;
+      font-size: 1.2rem;
+    }
+
+    .tech-list {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .tech-item {
+      padding: 8px 16px;
+      background: var(--dark-gradient);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      font-size: 0.9rem;
+      color: var(--light-text);
+    }
+
+    .modal-link {
+      display: inline-block;
+      padding: 12px 30px;
+      background: var(--gradient);
+      color: var(--white);
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      margin-top: 20px;
+    }
+
+    .modal-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 20px rgba(139, 92, 246, 0.4);
     }
 
     .custom-cursor {
@@ -199,7 +658,7 @@
       width: 20px;
       height: 20px;
       border-radius: 50%;
-      background: rgba(102, 126, 234, 0.5);
+      background: rgba(139, 92, 246, 0.5);
       pointer-events: none;
       z-index: 9999;
       transition: all 0.1s ease;
@@ -212,22 +671,21 @@
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: #667eea;
+      background: var(--primary-color);
       pointer-events: none;
       z-index: 9998;
       transition: all 0.15s ease;
       transform: translate(-50%, -50%);
     }
 
-
     @media (max-width: 768px) {
       .nav-links {
         position: fixed;
         top: 70px;
-        right: -100%;
+        right: -130%;
         width: 100%;
         height: calc(100vh - 70px);
-        background: rgba(255, 255, 255, 0.95);
+        background: rgba(15, 23, 42, 0.95);
         backdrop-filter: blur(10px);
         flex-direction: column;
         justify-content: start;
@@ -243,6 +701,30 @@
       .burger-menu {
         display: flex;
       }
+
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      .modal-content {
+        width: 95%;
+      }
+
+      .modal-header,
+      .modal-body,
+      .gallery-container {
+        padding: 20px;
+      }
+
+      .gallery-images img {
+        height: 250px;
+      }
+
+      .gallery-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+      }
     }
 
     @media (max-width: 480px) {
@@ -250,41 +732,31 @@
         padding: 1.2rem;
       }
     }
-    footer {
-      background: linear-gradient(135deg, #2d3748, #1a202c);;
-      padding: 2rem 5%;
-      box-shadow: var(--shadow);
-      margin-top: 40px;
-    }
-    .footer-content {
-      max-width: 1200px;
-      margin: auto;
-      text-align: center;
-    }
-    .footer-content h3 {
-      margin-bottom: 10px;
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .footer-content p {
-      color: #fff;
-      margin-bottom: 15px;
-    }
+
+
+
     .social-icons {
       margin-bottom: 15px;
     }
+
     .social-icons a {
       color: var(--text-color);
       margin: 0 10px;
       font-size: 1.2rem;
       transition: color 0.3s;
     }
+
     .social-icons a:hover {
       color: var(--primary-color);
     }
 
+    .copyright {
+      color: var(--light-text);
+    }
+
+    .highlight {
+      color: var(--primary-color);
+    }
   </style>
 </head>
 
@@ -293,10 +765,14 @@
   <header>
     <nav>
       <a href="index.html">
-        <div class="logo">My Portfolio</div>
+        <img class="img-logo" src="profile.png" alt="mon photo">
+        <div class="logo">
+          <h4>My<span style="color: #ffffff;">Portfolio</span></h4>
+        </div>
+
       </a>
       <ul class="nav-links">
-        <li><a href="index.html" aria-label="Home">Home</a></li>
+        <li><a href="index.html#home" aria-label="Home">Home</a></li>
         <li><a href="index.html#about" aria-label="About">About</a></li>
         <li><a href="index.html#services" aria-label="Services">Services</a></li>
         <li><a href="index.html#contact" aria-label="Contact">Contact</a></li>
@@ -309,90 +785,307 @@
     </nav>
   </header>
 
+  <h1>Front-End </h1>
 
-  <h1> Front-End</h1>
+  <div class="projects-container" id="frontend-projects"></div>
 
+  <div class="section-divider">
+    <h1>Back-End </h1>
+  </div>
 
-  <div class="projects-container">
-    <div class="project-card">
-      <img src="le delice cafe.png" alt="Project 1">
-      <h3>Project 1</h3>
-      <p>Un site Web moderne construit avec HTML, CSS et JavaScript.
-        Le Délice vous invite à découvrir l’authenticité de
-        la cuisine méditerranéenne dans une ambiance chaleureuse.
-        Des plats faits maison, des ingrédients frais et une
-        expérience culinaire unique à Casablanca. 🌿🍴
-      </p>
-      <a href="https://ledilicecafe.netlify.app/">View Project</a>
-    </div>
+  <div class="projects-container" id="backend-projects"></div>
 
-    <div class="project-card">
-      <img src="andalos.png" alt="Project 2">
-      <h3>Project 2</h3>
-      <p>Un site Web moderne construit avec HTML, CSS et JavaScript.
-        Café Andalous à Meknès vous invite à découvrir
-        l’authenticité marocaine à travers ses cafés parfumés,
-        ses thés à la menthe et ses pâtisseries traditionnelles.
-        Depuis 1985, nous perpétuons l’art de l’hospitalité
-        dans un cadre chaleureux, alliant tradition et modernité
-        pour une expérience unique au cœur de la médina. 🌿🥐
-      </p>
-      <a href="https://andalous-mellouki.netlify.app/">View Project</a>
-    </div>
-
-    <div class="project-card">
-      <img src="herrywatch.png" alt="Project 3">
-      <h3>Project 3</h3>
-      <p>Un site Web moderne construit avec HTML, CSS et JavaScript.
-        HERRY WATCH allie savoir-faire artisanal et design moderne pour
-        créer des montres élégantes et précises. Chaque modèle reflète
-        style et qualité, pour sublimer votre quotidien.
-      </p>
-      <a href="https://herry-wacth-mellouki.netlify.app/">View Project</a>
-    </div>
-    <div class="project-card">
-      <img src="riadnoir.png" alt="Project 4">
-      <h3>Project 4</h3>
-      <p>Un site Web moderne construit avec HTML, CSS et JavaScript.
-        🏛️ Riad Noir d'Ivoire à Marrakech vous invite à vivre
-        l'authenticité marocaine à travers son architecture
-        traditionnelle, son accueil chaleureux et ses expériences
-        de luxe. Depuis des années, nous allions tradition et
-        modernité pour offrir à nos visiteurs un séjour
-        inoubliable au cœur de la médina. 🌿🛁🍽️
-      </p>
-      <a href="https://riad-noir-d-ivoire.netlify.app/">View Project</a>
+  <!-- Modal -->
+  <div class="modal" id="projectModal">
+    <div class="modal-content">
+      <span class="modal-close" onclick="closeModal()">&times;</span>
+      <div class="modal-header">
+        <h2 id="modalTitle"></h2>
+        <div class="modal-tags" id="modalTags"></div>
+      </div>
+      <div class="gallery-container">
+        <div class="gallery-wrapper">
+          <div class="gallery-images" id="galleryImages"></div>
+          <button class="gallery-btn prev" onclick="changeSlide(-1)">&#10094;</button>
+          <button class="gallery-btn next" onclick="changeSlide(1)">&#10095;</button>
+        </div>
+        <div class="gallery-indicators" id="galleryIndicators"></div>
+      </div>
+      <div class="modal-body">
+        <p class="modal-description" id="modalDescription"></p>
+        <div class="modal-technologies">
+          <h3>Technologies utilisées</h3>
+          <div class="tech-list" id="modalTechnologies"></div>
+        </div>
+        <a class="modal-link" id="modalLink" target="_blank">Voir le projet <i class="fas fa-external-link-alt"></i></a>
+      </div>
     </div>
   </div>
-  <footer class="fade-in">
-    <div class="footer-content">
-      <h3>Mostafa Mellouki</h3>
-      <p>Web Developer & Designer based in Morocco. I build modern and intuitive web experiences.</p>
-      <div class="social-icons">
-        <a href="https://www.linkedin.com/in/mostafa-mellouki-25bb69280/" aria-label="LinkedIn"><i
-            class="fab fa-linkedin-in"></i></a>
-        <a href="https://github.com/PhoenixN1/desktop-tutorial" aria-label="GitHub"><i class="fab fa-github"></i></a>
+
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-intro">
+          <div class="footer-avatar"><img src="profile.png" alt=""></div>
+          <p>I'm Mostafa Mellouki – a developer, freelancer & problem solver. Thanks for checking
+            out my site!</p>
+        </div>
+
+        <div class="footer-column">
+          <h4>General</h4>
+          <ul>
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="project.html">Projects</a></li>
+            <li><a href="index.html#services">My Services</a></li>
+            <li><a href="index.html#contact">Contact Me</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Specifics</h4>
+          <ul>
+            <li><a href="#guestbook">Guest Book</a></li>
+            <li><a href="#bucket">Bucket List</a></li>
+            <li><a href="#uses">Uses</a></li>
+            <li><a href="#attribution">Attribution</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>More</h4>
+          <ul>
+            <li><a href="#call">Book a call</a></li>
+            <li><a href="#links">Links</a></li>
+            <li><a href="#rss">RSS</a></li>
+          </ul>
+        </div>
       </div>
-      <div class="copyright">
-        <p>&copy; 2025 All rights reserved | Designed by <span class="highlight">Mostafa Mellouki</span></p>
+
+      <div class="footer-bottom">
+        <div class="footer-legal">
+          <span>© 2025 Mostafa Mellouki. All rights reserved</span>
+          <a href="#privacy">Privacy Policy</a>
+          <span>|</span>
+          <a href="#terms">Terms & Conditions</a>
+        </div>
+
+        <div class="footer-social">
+          <a href="https://github.com/PhoenixN1/desktop-tutorial" class="social-icon" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/mostafa-mellouki-25bb69280/" class="social-icon" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+
+        </div>
       </div>
     </div>
   </footer>
 
   <script>
+    const projectsData = {
+      frontend: [
+        {
+          id: 1,
+          title: "Le Délice Café",
+          shortDesc: "Un site Web moderne construit avec HTML, CSS et JavaScript. Le Délice vous invite à découvrir l'authenticité de la cuisine méditerranéenne...",
+          fullDesc: "Le Délice Café est un site web élégant qui présente un restaurant méditerranéen authentique à Casablanca. Le site offre une expérience utilisateur immersive avec des animations fluides, une galerie de plats, un système de réservation en ligne et une présentation détaillée du menu. L'interface responsive garantit une navigation optimale sur tous les appareils.",
+          images: ["le delice cafe.png"],
+          technologies: ["HTML5", "CSS3", "JavaScript", "Responsive Design", "Animations CSS"],
+          tags: ["Restaurant", "Web Design", "Frontend"],
+          link: "https://ledilicecafe.netlify.app/"
+        },
+        {
+          id: 2,
+          title: "Café Andalous",
+          shortDesc: "Café Andalous à Meknès vous invite à découvrir l'authenticité marocaine à travers ses cafés parfumés, ses thés à la menthe...",
+          fullDesc: "Café Andalous est un site vitrine pour un café traditionnel marocain établi depuis 1985 à Meknès. Le projet combine tradition et modernité avec une interface élégante qui met en valeur l'art de l'hospitalité marocaine. Le site inclut une galerie photo, un menu interactif, l'historique du café et une section réservation.",
+          images: ["andalos.png"],
+          technologies: ["HTML5", "CSS3", "JavaScript", "jQuery", "Bootstrap"],
+          tags: ["Café", "Tradition", "Morocco"],
+          link: "https://andalous-mellouki.netlify.app/"
+        },
+        {
+          id: 3,
+          title: "HERRY WATCH",
+          shortDesc: "HERRY WATCH allie savoir-faire artisanal et design moderne pour créer des montres élégantes et précises...",
+          fullDesc: "HERRY WATCH est une boutique en ligne de montres de luxe qui combine élégance et fonctionnalité. Le site présente une collection exclusive de montres avec des fiches produits détaillées, un système de filtrage avancé, un panier d'achat interactif et des animations 3D pour visualiser les produits sous tous les angles.",
+          images: ["herrywatch.png"],
+          technologies: ["HTML5", "CSS3", "JavaScript", "Animation 3D", "E-commerce"],
+          tags: ["E-commerce", "Luxury", "Watches"],
+          link: "https://herry-wacth-mellouki.netlify.app/"
+        },
+        {
+          id: 4,
+          title: "Riad Noir d'Ivoire",
+          shortDesc: "Riad Noir d'Ivoire à Marrakech vous invite à vivre l'authenticité marocaine à travers son architecture traditionnelle...",
+          fullDesc: "Riad Noir d'Ivoire est un site web sophistiqué pour un riad de luxe situé dans la médina de Marrakech. Le projet met en avant l'architecture traditionnelle marocaine, les chambres luxueuses, le spa et les expériences authentiques offertes aux visiteurs. Le site intègre un système de réservation en ligne et une visite virtuelle 360°.",
+          images: ["riadnoir.png"],
+          technologies: ["HTML5", "CSS3", "JavaScript", "Virtual Tour", "Booking System"],
+          tags: ["Hotel", "Luxury", "Tourism"],
+          link: "https://riad-noir-d-ivoire.netlify.app/"
+        },
+        {
+          id: 5,
+          title: "Mini Design Gallery",
+          shortDesc: "Un site Web moderne construit avec HTML, CSS et JavaScript pour télécharger des photos.",
+          fullDesc: "Mini Design Gallery est une application web minimaliste permettant de parcourir et télécharger des images haute qualité. Le projet propose une interface épurée avec un système de recherche, des filtres par catégorie, une prévisualisation en lightbox et un téléchargement optimisé des images.",
+          images: ["mini-design.png",],
+          technologies: ["HTML5", "CSS3", "JavaScript", "API Integration", "Download Manager"],
+          tags: ["Gallery", "Images", "Download"],
+          link: "https://mini-downloadimage.netlify.app/"
+        }
+      ],
+      backend: [
+        {
+          id: 6,
+          title: "Site E-Commerce",
+          shortDesc: "Une API RESTful complète pour une plateforme e-commerce avec gestion des utilisateurs, produits et commandes...",
+          fullDesc: "API RESTful robuste développée pour gérer l'ensemble des opérations d'une plateforme e-commerce. Inclut l'authentification JWT, la gestion des rôles, le traitement des paiements via Stripe, la gestion du stock en temps réel et un système de notifications email automatisé. Architecture scalable avec Redis pour le cache et MySQL pour la base de données.",
+          images: ["pheo-1.png", "pheo-2.png", "pheo-3.png"],
+          technologies: ["html", "JavaScript", "Css", "php", "MySQL"],
+          tags: ["Backend", "E-commerce"],
+          link: "#"
+        },
+        {
+          id: 7,
+          title: "Twidor - Réseau Social",
+          shortDesc: "Une plateforme sociale complète pour publier, liker, commenter et interagir avec des amis en temps réel...",
+          fullDesc: "Twidor est un réseau social développé pour permettre aux utilisateurs de partager des posts, images et vidéos, d’envoyer des messages privés, de gérer des amis et de sauvegarder leurs publications préférées. Le back-end utilise PHP et MySQL avec gestion sécurisée des utilisateurs, notifications en temps réel et un système de likes et commentaires. L’interface est responsive et interactive, offrant une expérience utilisateur fluide.",
+          images: ["twidor-4.png", "twidor-1.png", "twidor-2.png", "twidor-3.png", "twidor-5.png", "twidor-6.png"],
+          technologies: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
+          tags: ["Backend", "Réseau Social", "Web App"],
+          link: "#"
+        },
+
+
+      ]
+    };
+
+    let currentSlide = 0;
+    let currentProject = null;
+
+    function renderProjects() {
+      const frontendContainer = document.getElementById('frontend-projects');
+      const backendContainer = document.getElementById('backend-projects');
+
+      projectsData.frontend.forEach(project => {
+        const card = createProjectCard(project);
+        frontendContainer.appendChild(card);
+      });
+
+      projectsData.backend.forEach(project => {
+        const card = createProjectCard(project);
+        backendContainer.appendChild(card);
+      });
+    }
+
+    function createProjectCard(project) {
+      const card = document.createElement('div');
+      card.className = 'project-card';
+      card.innerHTML = `
+        <img src="${project.images[0]}" alt="${project.title}">
+        <h3>${project.title}</h3>
+        <p>${project.shortDesc}</p>
+        <a href="javascript:void(0)" class="view-details" onclick="openModal(${project.id})">Voir les détails</a>
+      `;
+      return card;
+    }
+
+    function openModal(projectId) {
+      const allProjects = [...projectsData.frontend, ...projectsData.backend];
+      currentProject = allProjects.find(p => p.id === projectId);
+
+      if (!currentProject) return;
+
+      document.getElementById('modalTitle').textContent = currentProject.title;
+      document.getElementById('modalDescription').textContent = currentProject.fullDesc;
+      document.getElementById('modalLink').href = currentProject.link;
+
+      const tagsContainer = document.getElementById('modalTags');
+      tagsContainer.innerHTML = currentProject.tags.map(tag =>
+        `<span class="modal-tag">${tag}</span>`
+      ).join('');
+
+      const techContainer = document.getElementById('modalTechnologies');
+      techContainer.innerHTML = currentProject.technologies.map(tech =>
+        `<span class="tech-item"><i class="fas fa-check-circle" style="color: var(--primary-color); margin-right: 5px;"></i>${tech}</span>`
+      ).join('');
+
+      const galleryContainer = document.getElementById('galleryImages');
+      galleryContainer.innerHTML = currentProject.images.map(img =>
+        `<img src="${img}" alt="${currentProject.title}">`
+      ).join('');
+
+      const indicatorsContainer = document.getElementById('galleryIndicators');
+      indicatorsContainer.innerHTML = currentProject.images.map((_, index) =>
+        `<span class="indicator ${index === 0 ? 'active' : ''}" onclick="goToSlide(${index})"></span>`
+      ).join('');
+
+      currentSlide = 0;
+      updateGallery();
+
+      const modal = document.getElementById('projectModal');
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('projectModal');
+      modal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    function changeSlide(direction) {
+      currentSlide += direction;
+      if (currentSlide >= currentProject.images.length) currentSlide = 0;
+      if (currentSlide < 0) currentSlide = currentProject.images.length - 1;
+      updateGallery();
+    }
+
+    function goToSlide(index) {
+      currentSlide = index;
+      updateGallery();
+    }
+
+    function updateGallery() {
+      const gallery = document.getElementById('galleryImages');
+      gallery.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+      const indicators = document.querySelectorAll('.indicator');
+      indicators.forEach((indicator, index) => {
+        indicator.classList.toggle('active', index === currentSlide);
+      });
+    }
+
+    window.addEventListener('click', (e) => {
+      const modal = document.getElementById('projectModal');
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      const modal = document.getElementById('projectModal');
+      if (modal.classList.contains('active')) {
+        if (e.key === 'Escape') closeModal();
+        if (e.key === 'ArrowLeft') changeSlide(-1);
+        if (e.key === 'ArrowRight') changeSlide(1);
+      }
+    });
 
     window.addEventListener('scroll', () => {
       const header = document.querySelector('header');
       header.classList.toggle('scrolled', window.scrollY > 50);
     });
 
-
     const burger = document.querySelector('.burger-menu');
     const navLinks = document.querySelector('.nav-links');
     burger.addEventListener('click', () => {
       navLinks.classList.toggle('active');
     });
-
 
     const cursor = document.createElement('div');
     cursor.className = 'custom-cursor';
@@ -421,14 +1114,16 @@
     interactiveElements.forEach(el => {
       el.addEventListener('mouseenter', () => {
         cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
-        cursor.style.background = 'rgba(102, 126, 234, 0.8)';
+        cursor.style.background = 'rgba(139, 92, 246, 0.8)';
       });
 
       el.addEventListener('mouseleave', () => {
         cursor.style.transform = 'translate(-50%, -50%) scale(1)';
-        cursor.style.background = 'rgba(102, 126, 234, 0.5)';
+        cursor.style.background = 'rgba(139, 92, 246, 0.5)';
       });
     });
+
+    renderProjects();
   </script>
 
 </body>
