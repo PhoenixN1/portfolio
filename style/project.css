@@ -217,7 +217,7 @@ h1 {
     font-size: 0.95rem;
     color: var(--light-text);
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    /* -webkit-line-clamp: 3; */
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
